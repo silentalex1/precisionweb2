@@ -27,31 +27,34 @@
             height: 100%;
             background: linear-gradient(145deg, #1a1a2e, #3c1361);
             background-size: cover;
-            mix-blend-mode: multiply;
             z-index: -3;
         }
 
-        .particles {
+        .pattern-overlay {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 50%);
-            background-size: 3px 3px;
-            opacity: 0.4;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.7) 20%, transparent 70%);
+            background-size: 150px 150px;
+            mix-blend-mode: overlay;
             z-index: -2;
-            animation: particleAnimation 10s linear infinite;
         }
 
-        @keyframes particleAnimation {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            100% {
-                transform: translateY(-10%) translateX(5%);
-            }
+        .subtle-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.8));
+            mix-blend-mode: overlay;
+            opacity: 0.4;
+            z-index: -1;
         }
 
-        .ethereal-effect {
+        .ethereal-glow {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -61,55 +64,15 @@
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
             mix-blend-mode: overlay;
             filter: blur(100px);
-            opacity: 0.7;
+            opacity: 0.6;
             z-index: -1;
-            animation: etherealAnimation 15s ease infinite;
-        }
-
-        @keyframes etherealAnimation {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.05);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .second-ethereal-effect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 25%, rgba(255, 255, 255, 0.15), transparent 60%);
-            mix-blend-mode: screen;
-            filter: blur(200px);
-            opacity: 0.5;
-            z-index: -2;
-            animation: etherealAnimationReverse 20s ease infinite;
-        }
-
-        @keyframes etherealAnimationReverse {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(0.95);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
         }
     </style>
 </head>
 <body>
     <div class="background"></div>
-    <div class="particles"></div>
-    <div class="ethereal-effect"></div>
-    <div class="second-ethereal-effect"></div>
+    <div class="pattern-overlay"></div>
+    <div class="subtle-texture"></div>
+    <div class="ethereal-glow"></div>
 </body>
 </html>
