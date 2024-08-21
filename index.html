@@ -98,6 +98,7 @@
             width: 600px;
             height: 400px;
             overflow: hidden;
+            transition: transform 0.5s ease;
         }
 
         .image-container img {
@@ -164,8 +165,8 @@
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / 20;
-            const y = (e.clientY - rect.top - rect.height / 2) / 20;
+            const x = (e.clientX - rect.left - rect.width / 2) / 15;
+            const y = (e.clientY - rect.top - rect.height / 2) / 15;
 
             container.querySelector('img').style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
         });
