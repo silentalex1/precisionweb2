@@ -36,9 +36,9 @@
         .navbar {
             position: absolute;
             top: 20px;
-            right: 10%;
-            transform: translateX(-10%);
-            width: auto;
+            left: 25%; /* Move more towards the middle of the left side */
+            transform: translateX(-25%);
+            width: 70%; /* Increased width to make the navbar longer */
             background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 10px 30px;
@@ -110,10 +110,10 @@
         @media (max-width: 768px) {
             .navbar {
                 top: 10px;
-                right: 5%;
-                transform: translateX(-5%);
+                left: 50%; /* Centered for mobile view */
+                transform: translateX(-50%);
                 padding: 8px 20px;
-                width: auto;
+                width: 90%; /* Longer width on mobile */
             }
 
             .navbar-text {
