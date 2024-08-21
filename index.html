@@ -107,7 +107,7 @@
         }
 
         .image-container:hover img {
-            box-shadow: 0 0 30px 15px rgba(106, 13, 173, 0.8);
+            box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.8);
         }
 
         @media (max-width: 768px) {
@@ -158,5 +158,19 @@
         <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
     </div>
 
+    <script>
+        document.querySelector('.image-container').addEventListener('mousemove', (e) => {
+            const container = e.currentTarget;
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            container.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+
+        document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
+            e.currentTarget.style.transform = 'translate(-50%, -50%)';
+        });
+    </script>
 </body>
 </html>
