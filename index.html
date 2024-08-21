@@ -35,25 +35,26 @@
 
         .navbar {
             position: absolute;
-            top: 20px; /* Moved up to be closer to the top */
-            left: 50%;
-            transform: translateX(-40%); /* Adjusted to move left */
-            width: 60%; /* Made smaller */
+            top: 20px;
+            right: 10%;
+            transform: translateX(-10%);
+            width: auto;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px; /* Slightly smaller radius */
-            padding: 10px 30px; /* Smaller padding */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Softer shadow */
+            border-radius: 20px;
+            padding: 10px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(20px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             border: 1.5px solid rgba(255, 255, 255, 0.3);
             animation: navbarFadeIn 2s ease forwards;
+            z-index: 1;
         }
 
         .navbar-text {
-            font-size: 28px; /* Made the text slightly smaller */
-            font-weight: 600; /* Adjusted font weight */
+            font-size: 28px;
+            font-weight: 600;
             color: #fff;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
         }
@@ -62,11 +63,11 @@
             background: linear-gradient(145deg, #4e1c8c, #29134a);
             color: #fff;
             border: none;
-            border-radius: 15px; /* Smaller, sharper corners */
-            padding: 10px 20px; /* Reduced padding */
+            border-radius: 15px;
+            padding: 10px 20px;
             margin-left: 10px;
             cursor: pointer;
-            font-size: 16px; /* Smaller font size */
+            font-size: 16px;
             transition: all 0.4s ease;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
@@ -105,6 +106,25 @@
             opacity: 0.6;
             transform: translate(-50%, -50%);
         }
+
+        @media (max-width: 768px) {
+            .navbar {
+                top: 10px;
+                right: 5%;
+                transform: translateX(-5%);
+                padding: 8px 20px;
+                width: auto;
+            }
+
+            .navbar-text {
+                font-size: 20px;
+            }
+
+            .navbar button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -116,6 +136,7 @@
             <button>Discord Invite</button>
             <button>Showcase</button>
             <button>Purchase Now</button>
+            <button>TOS</button>
         </div>
     </div>
 </body>
