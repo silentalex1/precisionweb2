@@ -94,8 +94,8 @@
             top: 50%;
             left: 20%;
             transform: translate(-50%, -50%);
-            width: 450px;
-            height: 300px;
+            width: 500px;
+            height: 350px;
             transition: transform 0.3s ease;
         }
 
@@ -160,8 +160,9 @@
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-            container.style.transform = `translate(${x * 0.05}px, -50%)`;
+            container.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
