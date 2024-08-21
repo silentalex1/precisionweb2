@@ -36,12 +36,12 @@
         .navbar {
             position: absolute;
             top: 20px;
-            left: 25%; /* Move more towards the middle of the left side */
-            transform: translateX(-25%);
-            width: 70%; /* Increased width to make the navbar longer */
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto; /* Adjusted to fit content */
             background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 10px 30px;
+            padding: 10px 15px; /* Reduced padding */
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(20px);
             display: flex;
@@ -64,7 +64,7 @@
             color: #fff;
             border: none;
             border-radius: 15px;
-            padding: 10px 20px;
+            padding: 10px 15px; /* Reduced padding */
             margin-left: 10px;
             cursor: pointer;
             font-size: 16px;
@@ -112,8 +112,8 @@
                 top: 10px;
                 left: 50%; /* Centered for mobile view */
                 transform: translateX(-50%);
-                padding: 8px 20px;
-                width: 90%; /* Longer width on mobile */
+                padding: 8px 15px;
+                width: auto;
             }
 
             .navbar-text {
@@ -121,7 +121,7 @@
             }
 
             .navbar button {
-                padding: 8px 15px;
+                padding: 8px 10px;
                 font-size: 14px;
             }
         }
