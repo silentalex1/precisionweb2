@@ -94,9 +94,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            perspective: 1000px;
             width: 600px;
             height: 400px;
-            perspective: 1000px;
+            overflow: hidden;
         }
 
         .image-container img {
@@ -163,14 +164,14 @@
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) * 0.1;
-            const y = (e.clientY - rect.top - rect.height / 2) * 0.1;
+            const x = (e.clientX - rect.left - rect.width / 2) / 20;
+            const y = (e.clientY - rect.top - rect.height / 2) / 20;
 
-            container.querySelector('img').style.transform = `translate(${x}px, ${y}px)`;
+            container.querySelector('img').style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-            e.currentTarget.querySelector('img').style.transform = 'translate(0, 0)';
+            e.currentTarget.querySelector('img').style.transform = 'rotateX(0deg) rotateY(0deg)';
         });
     </script>
 </body>
