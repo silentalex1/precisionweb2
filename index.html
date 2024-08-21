@@ -35,47 +35,47 @@
 
         .navbar {
             position: absolute;
-            top: 40px;
+            top: 20px; /* Moved up to be closer to the top */
             left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
+            transform: translateX(-40%); /* Adjusted to move left */
+            width: 60%; /* Made smaller */
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 15px 40px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 20px; /* Slightly smaller radius */
+            padding: 10px 30px; /* Smaller padding */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Softer shadow */
             backdrop-filter: blur(20px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             animation: navbarFadeIn 2s ease forwards;
         }
 
         .navbar-text {
-            font-size: 32px;
-            font-weight: 700;
+            font-size: 28px; /* Made the text slightly smaller */
+            font-weight: 600; /* Adjusted font weight */
             color: #fff;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
         }
 
         .navbar button {
             background: linear-gradient(145deg, #4e1c8c, #29134a);
             color: #fff;
             border: none;
-            border-radius: 20px;
-            padding: 12px 24px;
-            margin-left: 15px;
+            border-radius: 15px; /* Smaller, sharper corners */
+            padding: 10px 20px; /* Reduced padding */
+            margin-left: 10px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px; /* Smaller font size */
             transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .navbar button:hover {
             background: linear-gradient(145deg, #29134a, #4e1c8c);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transform: scale(1.1);
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
         }
 
         .navbar button:active {
