@@ -92,13 +92,13 @@
         .image-container {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 20%;
             transform: translate(-50%, -50%);
             perspective: 1000px;
-            width: 600px;
-            height: 400px;
-            overflow: hidden;
-            transition: transform 0.5s ease;
+            width: 450px;
+            height: 300px;
+            transition: transform 0.3s ease;
+            z-index: 2;
         }
 
         .image-container img {
@@ -106,11 +106,23 @@
             height: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .image-container:hover img {
-            box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.8); /* Black highlight */
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            background: black;
+            z-index: -1;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .image-container:hover::before {
+            box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.7);
         }
 
         @media (max-width: 768px) {
@@ -140,6 +152,7 @@
 
             .image-container img {
                 height: auto;
+                transform: none;
                 box-shadow: none;
             }
         }
@@ -165,14 +178,14 @@
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / 15;
-            const y = (e.clientY - rect.top - rect.height / 2) / 15;
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-            container.querySelector('img').style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
+            container.style.transform = `rotateY(${x * 10}deg) rotateX(${y * -10}deg)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-            e.currentTarget.querySelector('img').style.transform = 'rotateX(0deg) rotateY(0deg)';
+            e.currentTarget.style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
     </script>
 </body>
