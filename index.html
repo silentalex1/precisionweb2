@@ -92,29 +92,18 @@
         .image-container {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 20%;
             transform: translate(-50%, -50%);
-            perspective: 1000px;
             width: 450px;
             height: 300px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
             border-radius: 15px;
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .image-container:hover {
-            transform: scale(1.02);
-        }
-
-        .image-container:hover img {
-            transform: rotateY(15deg) rotateX(10deg);
-            box-shadow: 0 10px 50px rgba(106, 13, 173, 0.8);
         }
 
         @media (max-width: 768px) {
@@ -163,7 +152,7 @@
     </div>
 
     <div class="image-container">
-        <img src="precision.png" alt="Precision Image">
+        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
     </div>
 
     <script>
@@ -171,13 +160,12 @@
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
 
-            container.querySelector('img').style.transform = `rotateY(${x * 0.05}deg) rotateX(${-y * 0.05}deg)`;
+            container.style.transform = `translate(${x * 0.05}px, -50%)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-            e.currentTarget.querySelector('img').style.transform = 'rotateY(0deg) rotateX(0deg)';
+            e.currentTarget.style.transform = 'translate(-50%, -50%)';
         });
     </script>
 </body>
