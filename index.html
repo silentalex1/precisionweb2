@@ -17,6 +17,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            position: relative;
         }
 
         .background {
@@ -27,15 +28,8 @@
             height: 100%;
             background: url('/mnt/data/image.png') no-repeat center center fixed;
             background-size: cover;
-            z-index: -1;
+            z-index: -4;
             mix-blend-mode: multiply;
-        }
-
-        .overlay {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
         }
 
         .particles {
@@ -45,7 +39,8 @@
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 50%);
             background-size: 5px 5px;
             opacity: 0.3;
-            z-index: -2;
+            z-index: -3;
+            animation: moveParticles 15s linear infinite;
         }
 
         .ethereal-effect {
@@ -53,12 +48,34 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
+            width: 120%;
+            height: 120%;
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
             mix-blend-mode: overlay;
             filter: blur(50px);
-            z-index: -3;
+            z-index: -2;
+        }
+
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        @keyframes moveParticles {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
     </style>
 </head>
@@ -66,5 +83,6 @@
     <div class="background"></div>
     <div class="particles"></div>
     <div class="ethereal-effect"></div>
+    <div class="grid"></div>
 </body>
 </html>
