@@ -10,7 +10,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background: linear-gradient(145deg, #0d0d1a, #362061);
+            background: linear-gradient(135deg, #0d0d1a, #1a1a2e, #362061, #2e0259);
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -28,28 +28,13 @@
             height: 100%;
             background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(29, 13, 45, 0.8)), linear-gradient(135deg, #0d0d1a, #1a1a2e, #362061, #2e0259);
             background-blend-mode: overlay;
-            background-size: 200% 200%;
-            animation: backgroundAnimation 10s ease infinite;
             z-index: -3;
-        }
-
-        @keyframes backgroundAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
         }
 
         .navbar {
             position: absolute;
             top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 10%; /* Moved further to the left */
             width: 55%;
             max-width: 800px;
             background: rgba(255, 255, 255, 0.15);
@@ -61,7 +46,6 @@
             justify-content: space-between;
             align-items: center;
             border: 1.5px solid rgba(255, 255, 255, 0.2);
-            animation: navbarFadeIn 2s ease forwards;
             z-index: 1;
         }
 
@@ -96,17 +80,6 @@
             transform: scale(0.95);
         }
 
-        @keyframes navbarFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .figma-design {
             position: absolute;
             top: 50%;
@@ -123,8 +96,8 @@
         @media (max-width: 768px) {
             .navbar {
                 top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
+                left: 5%;
+                transform: translateX(0);
                 padding: 8px 15px;
                 width: 90%;
                 max-width: none;
