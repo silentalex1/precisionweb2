@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precision Script</title>
+    <title>Precision Store/title>
     <style>
         body, html {
             margin: 0;
@@ -28,41 +28,61 @@
             background: url('/mnt/data/image.png') no-repeat center center fixed;
             background-size: cover;
             z-index: -3;
-            filter: brightness(0.8) contrast(1.2);
+            filter: brightness(0.9) contrast(1.4) saturate(1.2); /* Enhanced visibility */
         }
 
-        .overlay {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .texture {
+        .navbar {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/diagmonds-light.png') repeat;
-            opacity: 0.1;
-            z-index: -2;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 10px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1));
-            z-index: -1;
+        .navbar-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar button {
+            background: linear-gradient(145deg, #3c1361, #1a1a2e);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar button:hover {
+            background: linear-gradient(145deg, #1a1a2e, #3c1361);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
     <div class="background"></div>
-    <div class="texture"></div>
-    <div class="gradient-overlay"></div>
+    <div class="navbar">
+        <div class="navbar-text">Precision.lua</div>
+        <div>
+            <button>Discord Invite</button>
+            <button>Showcase</button>
+            <button>Purchase Now</button>
+        </div>
+    </div>
 </body>
 </html>
