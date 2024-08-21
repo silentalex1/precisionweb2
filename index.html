@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precision Store/title>
+    <title>Precision Store</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background: linear-gradient(145deg, #1a1a2e, #3c1361);
+            background: linear-gradient(145deg, #0d0d1a, #362061);
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0;
         }
 
         .background {
@@ -28,7 +29,8 @@
             background: url('/mnt/data/image.png') no-repeat center center fixed;
             background-size: cover;
             z-index: -3;
-            filter: brightness(0.9) contrast(1.4) saturate(1.2); /* Enhanced visibility */
+            filter: brightness(0.9) contrast(1.5) saturate(1.3);
+            opacity: 0.85;
         }
 
         .navbar {
@@ -36,48 +38,80 @@
             top: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70%;
-            background: rgba(255, 255, 255, 0.1);
+            width: 80%;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 25px;
-            padding: 10px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: navbarFadeIn 2s ease forwards;
         }
 
         .navbar-text {
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 32px;
+            font-weight: 700;
             color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
         }
 
         .navbar button {
-            background: linear-gradient(145deg, #3c1361, #1a1a2e);
+            background: linear-gradient(145deg, #4e1c8c, #29134a);
             color: #fff;
             border: none;
             border-radius: 20px;
-            padding: 10px 20px;
-            margin-left: 10px;
+            padding: 12px 24px;
+            margin-left: 15px;
             cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .navbar button:hover {
-            background: linear-gradient(145deg, #1a1a2e, #3c1361);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            transform: scale(1.05);
+            background: linear-gradient(145deg, #29134a, #4e1c8c);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes navbarFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            z-index: -1;
+            filter: blur(200px);
+            opacity: 0.6;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
     <div class="background"></div>
+    <div class="glow-effect"></div>
     <div class="navbar">
-        <div class="navbar-text">Precision.lua</div>
+        <div class="navbar-text">Precision Store</div>
         <div>
             <button>Discord Invite</button>
             <button>Showcase</button>
