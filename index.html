@@ -19,129 +19,23 @@
             transition: all 0.3s ease;
         }
 
-        .navbar {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 850px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            padding: 10px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-        }
-
-        .navbar-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-        }
-
-        .navbar button {
-            background: rgba(74, 30, 188, 0.8);
-            color: #ffffff;
-            border: none;
-            border-radius: 15px;
-            padding: 8px 16px;
-            margin-left: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar button:hover {
-            background: rgba(57, 29, 114, 0.8);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            transform: scale(1.05);
-        }
-
-        .navbar button:active {
-            transform: scale(0.95);
-        }
-
-        .image-container {
-            margin-top: 100px;
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .image-container img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-container {
-            margin-top: 20px;
-            width: 90%;
-            max-width: 450px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-        }
-
-        .faq-container h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin-bottom: 12px;
-            padding: 14px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-            font-size: 16px;
-            color: #e0e0e0;
-        }
-
-        .faq-item:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            color: #d0d0d0;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            transition: max-height 0.5s ease-in;
-        }
-
+        /* Desktop/Laptop Styles */
         @media (min-width: 769px) {
             .navbar {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+                max-width: 850px;
                 background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(15px);
-                padding: 15px 20px;
                 border-radius: 25px;
+                padding: 15px 20px;
                 box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+                backdrop-filter: blur(15px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 border: 1px solid rgba(255, 255, 255, 0.2);
             }
 
@@ -163,6 +57,8 @@
                 border-radius: 20px;
                 padding: 12px 18px;
                 font-size: 16px;
+                margin-left: 10px;
+                transition: all 0.3s ease;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             }
 
@@ -171,89 +67,164 @@
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             }
 
+            .navbar button:active {
+                transform: scale(0.95);
+            }
+
             .image-container {
-                margin-top: 120px;
-                width: 550px;
-                height: 350px;
-                left: 20%;
-                transform: translateX(-50%);
+                position: absolute;
+                top: 50%;
+                left: 25%;
+                transform: translate(-50%, -50%);
+                width: 600px;
+                height: 400px;
                 perspective: 1000px;
             }
 
             .faq-container {
-                margin-top: 0;
-                width: 400px;
                 position: absolute;
                 top: 50%;
-                right: 15%;
+                right: 10%;
                 transform: translateY(-50%);
+                width: 450px;
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 15px;
+                padding: 25px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+                backdrop-filter: blur(20px);
+            }
+
+            .faq-container h2 {
+                font-size: 30px;
+                font-weight: 700;
+                color: #ffffff;
+                margin-bottom: 20px;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .faq-item {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                margin-bottom: 10px;
+                padding: 15px;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.3s ease;
+                font-size: 20px;
+                color: #e0e0e0;
+            }
+
+            .faq-item:hover {
+                background: rgba(255, 255, 255, 0.25);
+                transform: translateY(-3px);
+            }
+
+            .faq-answer {
+                display: none;
+                margin-top: 10px;
+                color: #d0d0d0;
+                font-size: 18px;
+                line-height: 1.5;
+            }
+
+            .faq-item.active .faq-answer {
+                display: block;
             }
         }
 
+        /* Mobile/Tablet Styles */
         @media (max-width: 768px) {
             .navbar {
+                position: fixed;
                 top: 10px;
                 left: 50%;
                 transform: translateX(-50%);
-                padding: 8px 15px;
                 width: 90%;
+                background: rgba(0, 0, 0, 0.8);
+                border-radius: 20px;
+                padding: 10px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(10px);
+                display: flex;
                 flex-direction: column;
                 text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .navbar-text {
                 font-size: 24px;
+                font-weight: 700;
+                color: #ffffff;
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
                 margin-bottom: 10px;
             }
 
             .navbar button {
+                background: rgba(74, 30, 188, 0.8);
+                color: #ffffff;
+                border: none;
+                border-radius: 15px;
                 padding: 8px 12px;
-                font-size: 12px;
                 margin: 5px 0;
+                cursor: pointer;
+                font-size: 12px;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             }
 
             .image-container {
-                width: 80%;
-                height: auto;
+                margin-top: 100px;
+                width: 100%;
+                max-width: 550px;
+                padding: 20px;
+                box-sizing: border-box;
             }
 
             .faq-container {
-                width: 80%;
-                top: 60%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar-text {
-                font-size: 20px;
-            }
-
-            .navbar button {
-                padding: 6px 10px;
-                font-size: 10px;
-            }
-
-            .image-container {
+                margin-top: 20px;
                 width: 90%;
-                height: auto;
-            }
-
-            .faq-container {
-                width: 90%;
-                top: 65%;
+                max-width: 450px;
+                background: rgba(0, 0, 0, 0.8);
+                border-radius: 15px;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(15px);
             }
 
             .faq-container h2 {
-                font-size: 20px;
+                font-size: 24px;
+                font-weight: 700;
+                color: #ffffff;
+                margin-bottom: 20px;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 1px;
             }
 
             .faq-item {
-                font-size: 14px;
-                padding: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                margin-bottom: 12px;
+                padding: 14px;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.3s ease;
+                font-size: 16px;
+                color: #e0e0e0;
             }
 
             .faq-answer {
-                font-size: 12px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-out;
+                color: #d0d0d0;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 200px;
+                transition: max-height 0.5s ease-in;
             }
         }
     </style>
