@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
             background: linear-gradient(135deg, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
             display: flex;
             justify-content: center;
@@ -20,8 +20,8 @@
         }
 
         .navbar {
-            position: absolute;
-            top: 20px;
+            position: fixed;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -35,27 +35,14 @@
             justify-content: space-between;
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            animation: fadeIn 0.8s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .navbar:hover {
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
         }
 
         .navbar-text {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-            transition: color 0.3s ease;
         }
 
         .navbar button {
@@ -63,7 +50,7 @@
             color: #ffffff;
             border: none;
             border-radius: 15px;
-            padding: 10px 16px;
+            padding: 8px 16px;
             margin-left: 8px;
             cursor: pointer;
             font-size: 14px;
@@ -82,69 +69,40 @@
         }
 
         .image-container {
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-50%, -50%);
-            width: 550px;
-            height: 350px;
-            perspective: 1000px;
-            transition: all 0.3s ease;
+            margin-top: 100px;
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .image-container img {
             width: 100%;
-            height: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s ease;
-            opacity: 0;
-            animation: fadeInImage 0.8s forwards;
-            will-change: transform, opacity;
-        }
-
-        @keyframes fadeInImage {
-            to {
-                opacity: 1;
-            }
         }
 
         .faq-container {
-            position: absolute;
-            top: 50%;
-            right: 15%;
-            transform: translateY(-50%);
-            width: 400px;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 450px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(15px);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: slideIn 0.8s forwards;
-            overflow: hidden;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(20%);
-            }
-            to {
-                transform: translateY(-50%);
-                opacity: 1;
-            }
         }
 
         .faq-container h2 {
-            font-size: 30px;
+            font-size: 24px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 20px;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
         }
 
         .faq-item {
@@ -154,7 +112,7 @@
             padding: 14px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
-            font-size: 18px;
+            font-size: 16px;
             color: #e0e0e0;
         }
 
@@ -168,7 +126,7 @@
             overflow: hidden;
             transition: max-height 0.5s ease-out;
             color: #d0d0d0;
-            font-size: 16px;
+            font-size: 14px;
             line-height: 1.5;
         }
 
@@ -212,6 +170,24 @@
                 background: linear-gradient(145deg, #391d72, #4a1ebc);
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             }
+
+            .image-container {
+                margin-top: 120px;
+                width: 550px;
+                height: 350px;
+                left: 20%;
+                transform: translateX(-50%);
+                perspective: 1000px;
+            }
+
+            .faq-container {
+                margin-top: 0;
+                width: 400px;
+                position: absolute;
+                top: 50%;
+                right: 15%;
+                transform: translateY(-50%);
+            }
         }
 
         @media (max-width: 768px) {
@@ -239,13 +215,10 @@
             .image-container {
                 width: 80%;
                 height: auto;
-                left: 50%;
             }
 
             .faq-container {
                 width: 80%;
-                right: 10%;
-                left: 10%;
                 top: 60%;
             }
         }
@@ -271,16 +244,16 @@
             }
 
             .faq-container h2 {
-                font-size: 24px;
+                font-size: 20px;
             }
 
             .faq-item {
-                font-size: 16px;
-                padding: 12px;
+                font-size: 14px;
+                padding: 10px;
             }
 
             .faq-answer {
-                font-size: 14px;
+                font-size: 12px;
             }
         }
     </style>
@@ -330,6 +303,10 @@
             item.addEventListener('click', () => {
                 item.classList.toggle('active');
             });
+        });
+
+        document.querySelector('.image-container img').addEventListener('load', function() {
+            this.style.opacity = '1';
         });
 
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
