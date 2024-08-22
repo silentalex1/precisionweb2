@@ -100,6 +100,7 @@
             transition: transform 0.3s ease;
             opacity: 0;
             animation: fadeInImage 0.8s forwards;
+            will-change: transform, opacity;
         }
 
         @keyframes fadeInImage {
@@ -122,6 +123,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             animation: slideIn 0.8s forwards;
+            overflow: hidden;
         }
 
         @keyframes slideIn {
@@ -162,15 +164,17 @@
         }
 
         .faq-answer {
-            display: none;
-            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
             color: #d0d0d0;
             font-size: 16px;
             line-height: 1.5;
         }
 
         .faq-item.active .faq-answer {
-            display: block;
+            max-height: 200px;
+            transition: max-height 0.5s ease-in;
         }
 
         @media (max-width: 768px) {
@@ -180,27 +184,66 @@
                 transform: translateX(-50%);
                 padding: 8px 15px;
                 width: 90%;
+                flex-direction: column;
+                text-align: center;
             }
 
             .navbar-text {
                 font-size: 24px;
+                margin-bottom: 10px;
             }
 
             .navbar button {
                 padding: 8px 12px;
                 font-size: 12px;
+                margin: 5px 0;
             }
 
             .image-container {
-                width: 85%;
+                width: 80%;
                 height: auto;
                 left: 50%;
             }
 
             .faq-container {
-                width: 75%;
+                width: 80%;
                 right: 10%;
                 left: 10%;
+                top: 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-text {
+                font-size: 20px;
+            }
+
+            .navbar button {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+
+            .image-container {
+                width: 90%;
+                height: auto;
+            }
+
+            .faq-container {
+                width: 90%;
+                top: 65%;
+            }
+
+            .faq-container h2 {
+                font-size: 24px;
+            }
+
+            .faq-item {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
             }
         }
     </style>
@@ -218,7 +261,7 @@
     </div>
 
     <div class="image-container">
-        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="lazy">
+        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="eager">
     </div>
 
     <div class="faq-container">
