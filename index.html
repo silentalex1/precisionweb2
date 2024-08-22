@@ -12,11 +12,13 @@
             overflow: hidden;
             background: linear-gradient(135deg, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
             background-size: cover;
+            background-repeat: no-repeat;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Changed from center to flex-start */
             align-items: center;
             font-family: 'Montserrat', sans-serif;
             color: #e0e0e0;
+            transition: background 0.5s ease;
         }
 
         .background {
@@ -25,7 +27,11 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: radial-gradient(circle at center, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
+            background-size: 200% 200%;
             z-index: -3;
+            filter: brightness(1.1) contrast(1.05);
+            transition: filter 0.5s ease, background-size 0.5s ease;
         }
 
         .navbar {
@@ -53,28 +59,11 @@
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .navbar nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         .navbar-text {
             font-size: 30px;
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-        }
-
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .navbar li {
-            margin-left: 10px;
         }
 
         .navbar button {
@@ -83,6 +72,7 @@
             border: none;
             border-radius: 20px;
             padding: 12px 18px;
+            margin-left: 10px;
             cursor: pointer;
             font-size: 16px;
             transition: all 0.3s ease;
@@ -102,24 +92,37 @@
         .image-container {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 20%; /* Moved to the left */
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 350px;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            perspective: 1000px;
+            width: 450px;
+            height: 300px;
+            transition: transform 0.3s ease;
+            z-index: 2;
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: box-shadow 0.5s ease;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .image-container:hover img {
-            box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.8);
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            background: black;
+            z-index: -1;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .image-container:hover::before {
+            box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.7);
         }
 
         @media (max-width: 768px) {
@@ -142,14 +145,14 @@
             }
 
             .image-container {
-                width: 80%;
+                width: 90%;
                 height: auto;
                 left: 50%;
-                transform: translate(-50%, -50%);
             }
 
             .image-container img {
                 height: auto;
+                transform: none;
                 box-shadow: none;
             }
         }
@@ -157,36 +160,32 @@
 </head>
 <body>
     <div class="background"></div>
-    <header class="navbar">
-        <nav>
-            <div class="navbar-text">Precision Store</div>
-            <ul>
-                <li><button>Discord Invite</button></li>
-                <li><button>Showcase</button></li>
-                <li><button>Purchase Now</button></li>
-                <li><button>TOS</button></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="image-container">
-            <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
+    <div class="navbar">
+        <div class="navbar-text">Precision Store</div>
+        <div>
+            <button>Discord Invite</button>
+            <button>Showcase</button>
+            <button>Purchase Now</button>
+            <button>TOS</button>
         </div>
-    </main>
+    </div>
+
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
+    </div>
 
     <script>
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / 15;
-            const y = (e.clientY - rect.top - rect.height / 2) / 15;
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-            container.querySelector('img').style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
+            container.style.transform = `rotateY(${x * 10}deg) rotateX(${y * -10}deg)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-            e.currentTarget.querySelector('img').style.transform = 'rotateX(0deg) rotateY(0deg)';
+            e.currentTarget.style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
     </script>
 </body>
