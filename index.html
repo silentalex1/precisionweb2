@@ -120,15 +120,14 @@
             width: 100%;
             height: 100%;
             border-radius: 15px;
-            background: black;
-            z-index: -1;
+            background: linear-gradient(black, black);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, box-shadow 0.3s ease;
         }
 
         .image-container:hover::before {
             opacity: 1;
-            box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 30px 5px black;
         }
 
         @media (max-width: 768px) {
@@ -188,10 +187,12 @@
             const y = (e.clientY - rect.top - rect.height / 2) / rect.height * 30;
 
             container.querySelector('img').style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+            container.querySelector('::before').style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
             e.currentTarget.querySelector('img').style.transform = 'rotateY(0deg) rotateX(0deg)';
+            e.currentTarget.querySelector('::before').style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
     </script>
 </body>
