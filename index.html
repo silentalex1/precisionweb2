@@ -11,228 +11,196 @@
             height: 100%;
             overflow-x: hidden;
             background: linear-gradient(135deg, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: 'Montserrat', sans-serif;
             color: #e0e0e0;
             transition: all 0.3s ease;
         }
 
-        /* Desktop/Laptop Styles */
-        @media (min-width: 769px) {
-            .navbar {
-                position: absolute;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 75%;
-                max-width: 900px;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 20px;
-                padding: 10px 15px;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-                backdrop-filter: blur(10px);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-            .navbar:hover {
-                background: rgba(255, 255, 255, 0.2);
-                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            }
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 10px 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+        }
 
-            .navbar-text {
-                font-size: 28px;
-                font-weight: 700;
-                color: #ffffff;
-                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-            }
+        .navbar:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
 
-            .navbar button {
-                background: linear-gradient(145deg, #4a1ebc, #391d72);
-                color: #ffffff;
-                border-radius: 15px;
-                padding: 10px 15px;
-                font-size: 14px;
-                margin-left: 8px;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
+        .navbar-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+        }
 
-            .navbar button:hover {
-                background: linear-gradient(145deg, #391d72, #4a1ebc);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            }
+        .navbar button {
+            background: linear-gradient(145deg, #4a1ebc, #391d72);
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 10px 15px;
+            font-size: 14px;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-            .navbar button:active {
-                transform: scale(0.95);
-            }
+        .navbar button:hover {
+            background: linear-gradient(145deg, #391d72, #4a1ebc);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
 
-            .image-container {
-                position: absolute;
-                top: 50%;
-                left: 30%;
-                transform: translate(-50%, -50%);
-                width: 500px;
-                height: 350px;
-                perspective: 1000px;
-            }
+        .navbar button:active {
+            transform: scale(0.95);
+        }
 
-            .image-container img {
-                width: 100%;
-                height: 100%;
-                border-radius: 15px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-                transition: transform 0.3s ease;
-            }
+        .image-container {
+            flex: 1;
+            max-width: 600px;
+            height: auto;
+            perspective: 1000px;
+            margin-bottom: 20px;
+        }
 
-            .faq-container {
-                position: absolute;
-                top: 50%;
-                right: 15%;
-                transform: translateY(-50%);
-                width: 400px;
-                background: rgba(0, 0, 0, 0.6);
-                border-radius: 15px;
-                padding: 20px;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-                backdrop-filter: blur(15px);
-            }
+        .image-container img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
 
-            .faq-container h2 {
-                font-size: 26px;
-                font-weight: 700;
-                color: #ffffff;
-                margin-bottom: 15px;
-                text-align: center;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
+        .faq-container {
+            flex: 1;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            margin-left: 20px;
+        }
 
-            .faq-item {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-                margin-bottom: 8px;
-                padding: 12px;
-                cursor: pointer;
-                transition: background 0.3s ease, transform 0.3s ease;
-                font-size: 18px;
-                color: #e0e0e0;
-            }
+        .faq-container h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-            .faq-item:hover {
-                background: rgba(255, 255, 255, 0.25);
-                transform: translateY(-2px);
-            }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 18px;
+            color: #e0e0e0;
+        }
 
-            .faq-answer {
-                display: none;
-                margin-top: 8px;
-                color: #d0d0d0;
-                font-size: 16px;
-                line-height: 1.4;
-            }
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
 
-            .faq-item.active .faq-answer {
-                display: block;
-            }
+        .faq-answer {
+            display: none;
+            margin-top: 8px;
+            color: #d0d0d0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
         /* Mobile/Tablet Styles */
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .navbar {
-                position: fixed;
                 top: 10px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 90%;
-                background: rgba(0, 0, 0, 0.8);
-                border-radius: 20px;
                 padding: 10px 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(10px);
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .navbar-text {
                 font-size: 24px;
-                font-weight: 700;
-                color: #ffffff;
-                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
                 margin-bottom: 10px;
             }
 
             .navbar button {
-                background: rgba(74, 30, 188, 0.8);
-                color: #ffffff;
-                border: none;
-                border-radius: 15px;
                 padding: 8px 12px;
-                margin: 5px 0;
-                cursor: pointer;
                 font-size: 12px;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                margin: 5px 0;
             }
 
             .image-container {
-                margin-top: 100px;
                 width: 100%;
                 max-width: 550px;
-                padding: 20px;
-                box-sizing: border-box;
             }
 
             .faq-container {
                 margin-top: 20px;
                 width: 90%;
                 max-width: 450px;
-                background: rgba(0, 0, 0, 0.8);
-                border-radius: 15px;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(15px);
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-text {
+                font-size: 20px;
+            }
+
+            .navbar button {
+                padding: 6px 10px;
+                font-size: 10px;
             }
 
             .faq-container h2 {
                 font-size: 24px;
-                font-weight: 700;
-                color: #ffffff;
-                margin-bottom: 20px;
-                text-align: center;
-                text-transform: uppercase;
-                letter-spacing: 1px;
             }
 
             .faq-item {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-                margin-bottom: 12px;
-                padding: 14px;
-                cursor: pointer;
-                transition: background 0.3s ease, transform 0.3s ease;
                 font-size: 16px;
-                color: #e0e0e0;
+                padding: 12px;
             }
 
             .faq-answer {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease-out;
-                color: #d0d0d0;
                 font-size: 14px;
-                line-height: 1.5;
-            }
-
-            .faq-item.active .faq-answer {
-                max-height: 200px;
-                transition: max-height 0.5s ease-in;
             }
         }
     </style>
@@ -249,31 +217,33 @@
         </div>
     </div>
 
-    <div class="image-container">
-        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="eager">
-    </div>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="eager">
+        </div>
 
-    <div class="faq-container">
-        <h2>FAQ</h2>
-        <div class="faq-item">
-            <div>What is this for?</div>
-            <div class="faq-answer">This is a Roblox cheating script, for you to cheat on Roblox and be unfair. This script is a paid script which only costs $5 as of right now, which may change in the future.</div>
-        </div>
-        <div class="faq-item">
-            <div>What is the price of the script?</div>
-            <div class="faq-answer">As of right now the universal script costs $5. In the future, or if the script gets well-known, the price may change.</div>
-        </div>
-        <div class="faq-item">
-            <div>How do I buy the script?</div>
-            <div class="faq-answer">To buy the script, you can visit our website and click on the "Purchase Now" button. Follow the on-screen instructions to complete your purchase. Alternatively, you can join our Discord server and purchase directly through one of our trusted sellers. Make sure to verify your purchase in the Discord server to gain access to the script.</div>
-        </div>
-        <div class="faq-item">
-            <div>What do I do after I buy the script?</div>
-            <div class="faq-answer">After you buy the script, join the Discord server and verify your ID Auth key from your email.</div>
-        </div>
-        <div class="faq-item">
-            <div>I can't execute the script, why is that?</div>
-            <div class="faq-answer">Your executor might not be supported or you might have been blacklisted.</div>
+        <div class="faq-container">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <div>What is this for?</div>
+                <div class="faq-answer">This is a Roblox cheating script, for you to cheat on Roblox and be unfair. This script is a paid script which only costs $5 as of right now, which may change in the future.</div>
+            </div>
+            <div class="faq-item">
+                <div>What is the price of the script?</div>
+                <div class="faq-answer">As of right now the universal script costs $5. In the future, or if the script gets well-known, the price may change.</div>
+            </div>
+            <div class="faq-item">
+                <div>How do I buy the script?</div>
+                <div class="faq-answer">To buy the script, you can visit our website and click on the "Purchase Now" button. Follow the on-screen instructions to complete your purchase. Alternatively, you can join our Discord server and purchase directly through one of our trusted sellers. Make sure to verify your purchase in the Discord server to gain access to the script.</div>
+            </div>
+            <div class="faq-item">
+                <div>What do I do after I buy the script?</div>
+                <div class="faq-answer">After you buy the script, join the Discord server and verify your ID Auth key from your email.</div>
+            </div>
+            <div class="faq-item">
+                <div>I can't execute the script, why is that?</div>
+                <div class="faq-answer">Your executor might not be supported or you might have been blacklisted.</div>
+            </div>
         </div>
     </div>
 
