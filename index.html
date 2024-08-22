@@ -16,6 +16,7 @@
             align-items: center;
             font-family: 'Montserrat', sans-serif;
             color: #e0e0e0;
+            transition: all 0.3s ease;
         }
 
         .navbar {
@@ -23,19 +24,19 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 85%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 15px 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
+            width: 90%;
+            max-width: 850px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 0.8s forwards;
         }
 
         @keyframes fadeIn {
@@ -45,32 +46,33 @@
         }
 
         .navbar:hover {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
         }
 
         .navbar-text {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+            transition: color 0.3s ease;
         }
 
         .navbar button {
-            background: linear-gradient(145deg, #4a1ebc, #391d72);
+            background: rgba(74, 30, 188, 0.8);
             color: #ffffff;
             border: none;
-            border-radius: 20px;
-            padding: 12px 18px;
-            margin-left: 10px;
+            border-radius: 15px;
+            padding: 10px 16px;
+            margin-left: 8px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .navbar button:hover {
-            background: linear-gradient(145deg, #391d72, #4a1ebc);
+            background: rgba(57, 29, 114, 0.8);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             transform: scale(1.05);
         }
@@ -82,35 +84,44 @@
         .image-container {
             position: absolute;
             top: 50%;
-            left: 25%;
+            left: 20%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 400px;
+            width: 550px;
+            height: 350px;
             perspective: 1000px;
+            transition: all 0.3s ease;
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
-            border-radius: 15px;
+            border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeInImage 0.8s forwards;
+        }
+
+        @keyframes fadeInImage {
+            to {
+                opacity: 1;
+            }
         }
 
         .faq-container {
             position: absolute;
             top: 50%;
-            right: 10%;
+            right: 15%;
             transform: translateY(-50%);
-            width: 450px;
-            background: rgba(0, 0, 0, 0.7);
+            width: 400px;
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(20px);
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
             transition: all 0.3s ease;
             opacity: 0;
-            animation: slideIn 1s forwards;
+            animation: slideIn 0.8s forwards;
         }
 
         @keyframes slideIn {
@@ -124,23 +135,24 @@
         }
 
         .faq-container h2 {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 20px;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         .faq-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             margin-bottom: 12px;
-            padding: 16px;
+            padding: 14px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
-            font-size: 20px;
+            font-size: 18px;
             color: #e0e0e0;
         }
 
@@ -153,7 +165,7 @@
             display: none;
             margin-top: 10px;
             color: #d0d0d0;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.5;
         }
 
@@ -166,7 +178,7 @@
                 top: 10px;
                 left: 50%;
                 transform: translateX(-50%);
-                padding: 10px 15px;
+                padding: 8px 15px;
                 width: 90%;
             }
 
@@ -175,18 +187,18 @@
             }
 
             .navbar button {
-                padding: 10px 14px;
-                font-size: 14px;
+                padding: 8px 12px;
+                font-size: 12px;
             }
 
             .image-container {
-                width: 90%;
+                width: 85%;
                 height: auto;
                 left: 50%;
             }
 
             .faq-container {
-                width: 80%;
+                width: 75%;
                 right: 10%;
                 left: 10%;
             }
@@ -201,11 +213,12 @@
             <button>Showcase</button>
             <button>Purchase Now</button>
             <button>TOS</button>
+            <button>Feedback</button>
         </div>
     </div>
 
     <div class="image-container">
-        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
+        <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="lazy">
     </div>
 
     <div class="faq-container">
@@ -215,8 +228,12 @@
             <div class="faq-answer">This is a Roblox cheating script, for you to cheat on Roblox and be unfair. This script is a paid script which only costs $5 as of right now, which may change in the future.</div>
         </div>
         <div class="faq-item">
+            <div>What is the price of the script?</div>
+            <div class="faq-answer">As of right now the universal script costs $5. In the future, or if the script gets well-known, the price may change.</div>
+        </div>
+        <div class="faq-item">
             <div>How do I buy the script?</div>
-            <div class="faq-answer">Either buy the script on the website, or through our Discord server.</div>
+            <div class="faq-answer">To buy the script, you can visit our website and click on the "Purchase Now" button. Follow the on-screen instructions to complete your purchase. Alternatively, you can join our Discord server and purchase directly through one of our trusted sellers. Make sure to verify your purchase in the Discord server to gain access to the script.</div>
         </div>
         <div class="faq-item">
             <div>What do I do after I buy the script?</div>
