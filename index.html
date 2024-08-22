@@ -92,12 +92,12 @@
         .image-container {
             position: absolute;
             top: 50%;
-            left: 20%;
+            left: 25%;
             transform: translate(-50%, -50%);
             width: 500px;
-            height: 350px;
-            transition: transform 0.3s ease;
+            height: 330px;
             perspective: 1000px;
+            transition: transform 0.3s ease;
         }
 
         .image-container img {
@@ -105,65 +105,51 @@
             height: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
         }
 
-        .image-container:hover img {
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
-        }
-
-        .faq-section {
+        .faq-container {
             position: absolute;
             top: 50%;
             right: 10%;
             transform: translateY(-50%);
             width: 350px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            color: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
         }
 
-        .faq-section h2 {
-            font-size: 24px;
+        .faq-container h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
             margin-bottom: 20px;
             text-align: center;
-            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
         }
 
-        .faq-section .faq {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .faq-section .faq .question {
-            font-weight: 600;
-            font-size: 18px;
-            padding: 10px;
+        .faq-container .faq-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            cursor: pointer;
             transition: background 0.3s ease;
         }
 
-        .faq-section .faq:hover .question {
+        .faq-container .faq-item:hover {
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .faq-section .faq .answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            font-size: 16px;
-            margin-top: 5px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 10px;
+        .faq-container .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: #d0d0d0;
         }
 
-        .faq-section .faq.open .answer {
-            max-height: 200px;
+        .faq-container .faq-item.active .faq-answer {
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -191,18 +177,10 @@
                 left: 50%;
             }
 
-            .image-container img {
-                height: auto;
-                transform: none;
-                box-shadow: none;
-            }
-
-            .faq-section {
-                top: 80%;
-                right: 50%;
-                transform: translate(50%, -50%);
+            .faq-container {
                 width: 80%;
-                padding: 15px;
+                right: 10%;
+                left: 10%;
             }
         }
     </style>
@@ -223,26 +201,26 @@
         <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image">
     </div>
 
-    <div class="faq-section">
+    <div class="faq-container">
         <h2>FAQ</h2>
-        <div class="faq">
-            <div class="question">How do I buy the script?</div>
-            <div class="answer">Either buy the script on the website, or through our discord server.</div>
+        <div class="faq-item">
+            <div>How do I buy the script?</div>
+            <div class="faq-answer">Either buy the script on the website, or through our discord server.</div>
         </div>
-        <div class="faq">
-            <div class="question">What do I do after I buy the script?</div>
-            <div class="answer">After you bought the script you will have to join the discord server, and copy your ID Auth key, from your email before you do join the server, then once you've joined the server you would have to verify that key from our upcoming bot.</div>
+        <div class="faq-item">
+            <div>What do I do after I buy the script?</div>
+            <div class="faq-answer">After you bought the script you will have to join the discord server, and copy your ID Auth key, from your email before you do join the server, then once you've join the server you would have to verify that key from our upcoming bot.</div>
         </div>
-        <div class="faq">
-            <div class="question">I can't execute the script, why is that?</div>
-            <div class="answer">Your executor might not be supported or you might have gotten blacklisted.</div>
+        <div class="faq-item">
+            <div>I can't execute the script, why is that?</div>
+            <div class="faq-answer">Your executor might not be supported or you might have gotten blacklisted.</div>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll('.faq').forEach(faq => {
-            faq.addEventListener('click', () => {
-                faq.classList.toggle('open');
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
             });
         });
 
