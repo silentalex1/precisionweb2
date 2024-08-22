@@ -94,10 +94,10 @@
             top: 50%;
             left: 20%;
             transform: translate(-50%, -50%);
-            width: 500px; /* Increased size */
-            height: 350px; /* Increased size */
+            width: 500px;
+            height: 350px;
             transition: transform 0.3s ease;
-            z-index: 2;
+            perspective: 1000px;
         }
 
         .image-container img {
@@ -109,7 +109,6 @@
         }
 
         .image-container:hover img {
-            transform: rotate(2deg); /* 2D rotation effect */
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
         }
 
@@ -123,10 +122,12 @@
             border-radius: 15px;
             background: black;
             z-index: -1;
-            transition: box-shadow 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .image-container:hover::before {
+            opacity: 1;
             box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.7);
         }
 
@@ -183,14 +184,14 @@
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / rect.width * 10;
-            const y = (e.clientY - rect.top - rect.height / 2) / rect.height * 10;
+            const x = (e.clientX - rect.left - rect.width / 2) / rect.width * 30;
+            const y = (e.clientY - rect.top - rect.height / 2) / rect.height * 30;
 
-            container.querySelector('img').style.transform = `rotate(${x}deg) rotate(${y}deg)`;
+            container.querySelector('img').style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
         });
 
         document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-            e.currentTarget.querySelector('img').style.transform = 'rotate(0deg)';
+            e.currentTarget.querySelector('img').style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
     </script>
 </body>
