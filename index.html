@@ -11,27 +11,11 @@
             height: 100%;
             overflow: hidden;
             background: linear-gradient(135deg, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
-            background-size: cover;
-            background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Montserrat', sans-serif;
             color: #e0e0e0;
-            transition: background 0.5s ease;
-        }
-
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #0b0b14, #1a1a2e, #4a1ebc, #6920f2);
-            background-size: 200% 200%;
-            z-index: -3;
-            filter: brightness(1.1) contrast(1.05);
-            transition: filter 0.5s ease, background-size 0.5s ease;
         }
 
         .navbar {
@@ -50,8 +34,14 @@
             justify-content: space-between;
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: 1;
-            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .navbar:hover {
@@ -94,10 +84,9 @@
             top: 50%;
             left: 25%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 330px;
+            width: 700px; /* Increased width */
+            height: 450px; /* Increased height */
             perspective: 1000px;
-            transition: transform 0.3s ease;
         }
 
         .image-container img {
@@ -105,6 +94,8 @@
             height: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            image-rendering: high-quality; /* Ensures high-quality rendering */
         }
 
         .faq-container {
@@ -112,43 +103,62 @@
             top: 50%;
             right: 10%;
             transform: translateY(-50%);
-            width: 350px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 450px; /* Increased width */
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px; /* Increased padding */
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20%);
+            }
+            to {
+                transform: translateY(-50%);
+                opacity: 1;
+            }
         }
 
         .faq-container h2 {
-            font-size: 28px;
+            font-size: 30px; /* Increased font size */
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 20px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .faq-container .faq-item {
+        .faq-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 20px; /* Increased font size */
+            color: #e0e0e0;
         }
 
-        .faq-container .faq-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
         }
 
-        .faq-container .faq-answer {
+        .faq-answer {
             display: none;
             margin-top: 10px;
             color: #d0d0d0;
+            font-size: 18px; /* Increased font size */
+            line-height: 1.5;
         }
 
-        .faq-container .faq-item.active .faq-answer {
+        .faq-item.active .faq-answer {
             display: block;
         }
 
@@ -159,7 +169,6 @@
                 transform: translateX(-50%);
                 padding: 10px 15px;
                 width: 90%;
-                max-width: none;
             }
 
             .navbar-text {
@@ -186,7 +195,6 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
     <div class="navbar">
         <div class="navbar-text">Precision Store</div>
         <div>
@@ -209,11 +217,11 @@
         </div>
         <div class="faq-item">
             <div>What do I do after I buy the script?</div>
-            <div class="faq-answer">After you bought the script you will have to join the discord server, and copy your ID Auth key, from your email before you do join the server, then once you've join the server you would have to verify that key from our upcoming bot.</div>
+            <div class="faq-answer">After you bought the script, join the discord server and verify your ID Auth key from your email.</div>
         </div>
         <div class="faq-item">
             <div>I can't execute the script, why is that?</div>
-            <div class="faq-answer">Your executor might not be supported or you might have gotten blacklisted.</div>
+            <div class="faq-answer">Your executor might not be supported or you might have been blacklisted.</div>
         </div>
     </div>
 
