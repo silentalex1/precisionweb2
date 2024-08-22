@@ -95,11 +95,12 @@
             right: 10%;
             transform: translateY(-50%);
             width: 350px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
         }
 
         .faq-container h2 {
@@ -108,25 +109,32 @@
             color: #ffffff;
             margin-bottom: 20px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .faq-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 18px;
+            color: #e0e0e0;
         }
 
         .faq-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
         }
 
         .faq-answer {
             display: none;
             margin-top: 10px;
             color: #d0d0d0;
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         .faq-item.active .faq-answer {
