@@ -14,6 +14,7 @@
             font-family: 'Poppins', sans-serif;
             color: #f0f0f0;
             transition: all 0.3s ease;
+            scroll-behavior: smooth;
         }
 
         /* Navbar Styles */
@@ -80,6 +81,18 @@
             box-sizing: border-box;
         }
 
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Image Container Styles */
         .image-container {
             flex: 1;
@@ -99,6 +112,10 @@
         .image-container img:hover {
             transform: scale(1.02);
             box-shadow: 0 15px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-container img.loaded {
+            opacity: 1;
         }
 
         /* FAQ Container Styles */
@@ -153,6 +170,36 @@
             display: block;
         }
 
+        /* Showcase Video Section */
+        .showcase-video {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            transition: all 0.8s ease;
+        }
+
+        .showcase-video h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .showcase-video video {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
         /* Mobile/Tablet Styles */
         @media (max-width: 768px) {
             .container {
@@ -194,6 +241,14 @@
             .faq-answer {
                 font-size: 14px;
             }
+
+            .showcase-video h2 {
+                font-size: 24px;
+            }
+
+            .showcase-video video {
+                width: 95%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -218,6 +273,14 @@
             .faq-answer {
                 font-size: 12px;
             }
+
+            .showcase-video h2 {
+                font-size: 20px;
+            }
+
+            .showcase-video video {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -234,11 +297,11 @@
     </div>
 
     <div class="container">
-        <div class="image-container">
+        <div class="section image-container">
             <img src="https://raw.githubusercontent.com/silentalex1/precisionweb2/main/precision.png" alt="Precision Image" loading="eager">
         </div>
 
-        <div class="faq-container">
+        <div class="section faq-container">
             <h2>FAQ</h2>
             <div class="faq-item">
                 <div>What is this for?</div>
@@ -263,17 +326,42 @@
         </div>
     </div>
 
+    <div class="section showcase-video">
+        <h2>Showcase Video</h2>
+        <video controls autoplay muted loop>
+            <source src="your-video-url.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <script>
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // FAQ toggle
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 item.classList.toggle('active');
             });
         });
 
+        // Image load effect
         document.querySelector('.image-container img').addEventListener('load', function() {
-            this.style.opacity = '1';
+            this.classList.add('loaded');
         });
 
+        // Image hover 3D effect
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
