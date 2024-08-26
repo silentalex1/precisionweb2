@@ -6,19 +6,17 @@
     <title>Precision Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a2e, #2b2e4a, #4e54c8);
+            background: linear-gradient(135deg, #0d0d2b, #1c1c3d, #31318a);
             font-family: 'Poppins', sans-serif;
-            color: #f0f0f0;
+            color: #ffffff;
             transition: all 0.3s ease;
             scroll-behavior: smooth;
         }
 
-        /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 20px;
@@ -26,7 +24,7 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 1200px;
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 15px 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
@@ -40,9 +38,10 @@
 
         .navbar-text {
             font-size: 28px;
-            font-weight: 600;
-            color: #ffffff;
+            font-weight: 700;
+            color: #f5f5f5;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
         }
 
         .navbar button {
@@ -56,7 +55,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             border: none;
-            outline: none;
         }
 
         .navbar button:hover {
@@ -69,7 +67,6 @@
             transform: scale(0.95);
         }
 
-        /* Container Styles */
         .container {
             display: flex;
             justify-content: space-between;
@@ -79,7 +76,6 @@
             max-width: 1200px;
             margin: 120px auto 0;
             padding: 0 20px;
-            box-sizing: border-box;
         }
 
         .section {
@@ -94,7 +90,6 @@
             transform: translateY(0);
         }
 
-        /* Image Container Styles */
         .image-container {
             flex: 1;
             max-width: 550px;
@@ -111,7 +106,7 @@
         }
 
         .image-container img:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
             box-shadow: 0 15px 60px rgba(0, 0, 0, 0.8);
         }
 
@@ -119,16 +114,14 @@
             opacity: 1;
         }
 
-        /* FAQ Container Styles */
         .faq-container {
             flex: 1;
             max-width: 500px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
-            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .faq-container h2 {
@@ -138,15 +131,15 @@
             margin-bottom: 20px;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .faq-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin-bottom: 10px;
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 20px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
             font-size: 18px;
@@ -155,13 +148,13 @@
         }
 
         .faq-item:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
         }
 
         .faq-answer {
             display: none;
-            margin-top: 8px;
+            margin-top: 10px;
             color: #d0d0d0;
             font-size: 16px;
             line-height: 1.6;
@@ -171,18 +164,18 @@
             display: block;
         }
 
-        /* Showcase Video Section */
         .showcase-video {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 100px 0;
+            padding: 100px 20px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
-            transition: all 0.8s ease;
+            max-width: 1200px;
+            margin: 50px auto;
         }
 
         .showcase-video h2 {
@@ -196,12 +189,11 @@
 
         .showcase-video video {
             width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
+            max-width: 900px;
+            border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
-        /* Mobile/Tablet Styles */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -336,7 +328,6 @@
     </div>
 
     <script>
-        // Intersection Observer for scroll animations
         const sections = document.querySelectorAll('.section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -350,19 +341,16 @@
             observer.observe(section);
         });
 
-        // FAQ toggle
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 item.classList.toggle('active');
             });
         });
 
-        // Image load effect
         document.querySelector('.image-container img').addEventListener('load', function() {
             this.classList.add('loaded');
         });
 
-        // Image hover 3D effect
         document.querySelector('.image-container').addEventListener('mousemove', (e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
