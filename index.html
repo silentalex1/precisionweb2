@@ -183,6 +183,13 @@
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .showcase-video p {
+            font-size: 16px;
+            color: #d0d0d0;
             margin-bottom: 30px;
             text-align: center;
         }
@@ -239,6 +246,10 @@
                 font-size: 24px;
             }
 
+            .showcase-video p {
+                font-size: 14px;
+            }
+
             .showcase-video video {
                 width: 95%;
             }
@@ -271,6 +282,10 @@
                 font-size: 20px;
             }
 
+            .showcase-video p {
+                font-size: 12px;
+            }
+
             .showcase-video video {
                 width: 100%;
             }
@@ -281,11 +296,10 @@
     <div class="navbar">
         <div class="navbar-text">Precision Store</div>
         <div>
-            <button>Discord Invite</button>
-            <button>Showcase</button>
-            <button>Purchase Now</button>
-            <button>TOS</button>
-            <button>Feedback</button>
+            <button onclick="window.location.href='https://discord.gg/sewS6cAyD3'">Discord Invite</button>
+            <button onclick="window.location.href='https://www.youtube.com/channel/UC-youtube-channel-url'">Showcase</button>
+            <button onclick="window.location.href='tos.html'">TOS</button>
+            <button onclick="window.location.href='feedback.html'">Feedback</button>
         </div>
     </div>
 
@@ -321,6 +335,7 @@
 
     <div class="section showcase-video">
         <h2>Showcase Video</h2>
+        <p>No video yet, but this is where it will be.</p>
         <video controls autoplay muted loop>
             <source src="upcomingvid.mp4" type="video/mp4">
             Your browser does not support the video tag.
